@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마진과패딩</title>
+    <style>
+        div{
+            /* border(경계선)를 기준으로 안쪽 여백 padding */
+            /* 바깥쪽여백은 margin */
+            border: 1px solid black;
+        }
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: burlywood;
+            padding: 50px;
+        }
+        .top{
+            height: 200px;
+            background-color: aqua;
+            margin-bottom: 50px;
+        }
+        .bottom{
+            height: 200px;
+            background-color: aquamarine;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            /* 마우스를 올리면 커서가 지정한 값으로 변경 */
+            cursor: pointer;
+        }
+        .top > img{
+            margin: 20px;
+        }
+        .bottom > img{
+            padding: 20px;
+        }
+        button{
+            /* margin: 10px; */
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top"> <img src="https://w7.pngwing.com/pngs/211/405/png-transparent-computer-icons-close-button-trademark-logo-sign-thumbnail.png" alt="" >갈라저라 현실이여 </div>
+        <div class="bottom"><img src="https://w7.pngwing.com/pngs/211/405/png-transparent-computer-icons-close-button-trademark-logo-sign-thumbnail.png" alt="" >터져라 시냅스</div>
+        퍼니시먼트디스월드</div>
+        <div>
+        </div>
+    <input type="text" placeholder="내안의 망냥냥이 "> <button>검색</button>
+
+</body>
+</html>
