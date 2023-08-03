@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정렬</title>
+    <style>
+        div {
+            /* 레이아웃을 짤뎨 태그 범위를 보면서 */
+            border: 1px solid black;
+        }
+
+        .box {
+            height: 150px;
+        }
+
+        .box img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .top {
+            /* 내부 lnline 요소들을 정렬시킨다. */
+            text-align: center;
+        }
+
+        .middle {
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            /* margin이 적용되는 태그 자체가 이동한다. */
+            /* display: block이어야 하며 수평 이동만 된다. */
+            margin: auto;
+        }
+
+        .bottom {
+            /* 내부요소가 inline이든 block이든 */
+            /* 싹다 inline으로 만들어서 정렬시킬 수 있다. */
+            display: flex;
+            justify-content: center;
+        }
+
+        .div-icon {
+            width: 100px;
+            height: 100px;
+            background-image: url("https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            /* 수직 정렬 */
+            align-items: center;
+        }
+
+        .final {
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            /* left, top의 50%는 부모 크기의 절반 */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* translate의 50%는 본인 크기의 절반 */
+            transform: translate(-50%, -50%);
+
+        }
+
+        .p-rel {
+            position: relative;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    display: inline인 내부 요소들 수평정렬
+    <div class="box top">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+    </div>
+    display: block인 요소 자체 수평정렬
+    <div class="box">
+        <div class="middle ">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+        </div>
+    </div>
+    flex를 이용한 내부요소 수평정렬
+    <div class="box bottom">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+        <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+            alt="">
+    </div>
+    <div class="box bottom">
+        <div class="div-icon"></div>
+        <div class="div-icon"></div>
+        <div class="div-icon"></div>
+    </div>
+    flex를 이용한 내부요소 수평+수직 정렬
+    <div class="box footer">
+        <div class="div-icon"></div>
+        <div class="div-icon"></div>
+        <div class="div-icon"></div>
+    </div>
+
+    position을 이용한 자체 요소 가운데 정렬
+    <div class="box p-rel">
+        <div class="final">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+            <img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe918954d-0bc7-4fae-89e8-7d58b26c6f0a%2Fasdasd.png&blockId=6464750f-2710-49d9-bb27-388fc1141a81&width=256"
+                alt="">
+        </div>
+    </div>
+    <div>
+        <div class="nav-bar">
+            <img width="200px" src="https://blog.kakaocdn.net/dn/CNxUY/btqw7dnElRU/HuVZgvpT6J8n4aEYFathEk/img.jpg"
+                alt="">
+            <div class="">
+                <a href=""> 회사소개</a>
+                <a href=""> 비즈니스</a>
+                <a href=""> 서비스</a>
+                <a href=""> 커뮤니티</a>
+            </div>
+            <div>
+                <img width="50px" src="https://static.thenounproject.com/png/2944070-200.png" alt="">
+                <img width="50px"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8jHyAAAABPTU7W1dUcGBkZExVqaGgfGxwHAAAbFhf29vYQCAofGhsUDhDy8vKxsLAxLS7o6OgMAAWOjI18enteXFxFQ0PCwcG3trbq6urc3NxVU1OWlJSHhoZycHClpKVCP0A5Nje9vLzJyMiAfn5samooJCWopqcI4FBKAAAC1UlEQVR4nO3c2XaqQBCFYWknhhZxwijBIdHE93/CYBYSxT7nisK1iv+7rQvYgEiPvR4AAAAAAAAAAAAAAAAAAAAAAAAAAAAANeaDLHr1OciJkndzNcvnrz4VGZuZCb0r3y6WGm/kzvheJVhPa+V5nr73RaTLQSsBV8a7F88e7+LO2FE4lBCG1uxbeGQOjwGLiOl9Oa2Xm2WP9UemcVP7dFSz+SvvAtGARcT03+fWjN1zwslHVR3I3sEr8ymc8DlgcdDqBbCPxRP6M9mAzptkl2U1kg9YXE/Z/+BPV8LRuKxm8g9pkfBNNOFh4Tjm5FhW39pIGCTtJxyuy+pJQUL9T6n7TZPfyhPfUW464VY0Yc93ZDDZrXqWf5mG6/+dXgPy54+WsF9VM+lPmuJynoQTRs838f6HkUv/EoO9cMCicVjPsHg45sqI/hRN2kLjonabbP+xfPFMPJIRB3HuPqeGHcoW/pVvxvWLOt2cv8YiVonwa7Ry6pv491kMjXdp6ZhtO50nQRDYNNHYS1OZq04HAAA6Ibssv84H6cbo62w+TGBH8cIEufhAySts+3+t3MB77vmKsoGMrKXLmX2P7hrAE1NrP0W7mTUyFrN9Gw3E6XfoPXgcDBoYK9eN4cfiI0+FtN5h6Id3F3Yg203j+fIRHR339lxVo2PoOK1GI4bSD2rfEcFUb4BEvlvf7mQDTl0RTDVWsh6KJ/SMbELn+Fm8KqvbVkZmZL8zEle3/fC9rLYyunY/MUJA7hrH929TFdoZIZXtwNR/D/X/DvW/S/X/H3bgm0b/d2kH2hb624cdaOP39PfTXGnvawMAAJ2he06U9nlt6ucmqp9fqn6OsPp53vrn6utfb6F+zYz+dU/6167pX3+ofw2p/qdU/1pu/evxO7Cngv59MfTvbdKB/Wk6sMdQB/aJ6sBeX79079cGAAAAAAAAAAAAAAAAAAAAAAAAAAAAQNQPclNNNX+giAMAAAAASUVORK5CYII="
+                    alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
