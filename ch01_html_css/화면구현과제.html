@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1200px;
+            background-color: black;
+            margin: auto;
+
+        }
+
+        .back-color {
+            background-color: white;
+        }
+
+        .h2-color {
+            color: orange;
+        }
+
+        .p-color {
+            color: white;
+        }
+
+        .header {
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .menu {
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu a{
+            text-decoration: dashed;
+            cursor: pointer;
+        }
+        .wtr {
+        
+            text-align: center;
+        }
+
+        .login {
+            width: 120px;
+            border-radius: 40px;
+            background-color: orange;
+        }
+
+        .top {
+            height: 400px;
+        }
+
+        .top div {
+            height: 300px;
+        }
+
+        .center {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .center-nm {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .wr {
+            text-align: start;
+        }
+
+        .img-center img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            width: 1150px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+        }
+
+        .item>div {
+            width: calc(1150px / 3 - 20px);
+            height: auto;
+            box-shadow: 1px 1px 4px 1px skyblue;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .item img {
+            width: 325px;
+            overflow: hidden;
+        }
+
+        .ox {
+            width: 1150px;
+        }
+
+        .under {
+            width: 1150px;
+            height: 150px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .c-color {
+            background-color: #361e9c;
+        }
+        .m-mar{
+            margin: 0;
+        }
+        .font-m-size{
+            font-size: medium;
+        }
+        .font-s-size{
+            font-size: small;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h2 class="h2-color font-m-size"> 넥도 날드</h2>
+            </div>
+            <div class="menu">
+                <a href="" class="p-color">home </a>
+                <a href="" class="p-color">메뉴 </a>
+                <a href="" class="p-color">매장찾기 </a>
+            </div>
+            <div>
+                <div class="login center">
+                    로그인/회원가입
+                </div>
+            </div>
+        </div>
+        <div class="top center">
+            <div class=" img-center">
+                <img src="data:image/jpeg;base64,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"
+                    alt="">
+            </div>
+            <div class="wtr">
+                <h2 class="h2-color font-m-size"> 빅넥 출시</h2>
+                <p class="p-color">
+                    둘이 먹다 하나 죽어도 아무도 모르는 그환상의 맛...
+                </p>
+                <p class="p-color">
+                    100% 순 게 살코기에 해저 치즈, 상추, 토마토, 양파
+                </p>
+                <p class="p-color">
+                    그걸 김이 모락모락 나는 참깨빵 사이에 넣어서 먹으면...
+                </p>
+            </div>
+        </div>
+        <div class="center">
+            <div class="ox center back-color">
+                <h2 class="h2-color font-m-size">햄버거 목록</h2>
+            </div>
+        </div>
+        <div class="center">
+            <div class=" ox center ">
+                <div class="item back-color ">
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="item-img center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn-sQrWxysqtlS75nT0Igz331hZmfpcZiF0w&usqp=CAU"
+                                alt="">
+                        </div>
+                        <div class="item-p center font-m-size ">
+                            <h3> 빅넥</h3>
+                        </div>
+                        <div class="item-p center">
+                            <h3> 4,000원</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="center ox">
+                <div class=" under center c-color">
+                    <div class=" wr">
+                        <h2 class="m-mar p-color font-m-size"> (34856) 넥스트 IT 교육센터</h2>
+                        <h2 class="m-mar p-color font-m-size"> 대전광역시 중구 계룡로 825(용두동, 희영빌딩 2층)</h2>
+                        <p class="p-color font-s-size">
+                            Tel : 042-719-8850 Fax : 042-719-8851
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

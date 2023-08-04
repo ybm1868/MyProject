@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정렬(구글)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
     <style>
         .header img {
             border-radius: 25px;
@@ -72,7 +75,7 @@
 
         }
 
-        .site-box div:hover {
+        .site-box a:hover {
             background-color: gainsboro;
         }
 
@@ -83,7 +86,7 @@
 
         }
 
-        .site-box>div {
+        .site-box>a {
             border: 1px solid;
             /* 수식이 계산된 px단위가 적용된다 */
             width: calc(100%/5 - 2px);
@@ -93,32 +96,46 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
-            cursor: pointer;
+            text-decoration: none;
         }
 
         .site-box p {
             margin: 5px;
+            /* 글자 크기 조정 */
+            font-size: 10px;
+            /* 폰트 설정  */
+            /* 영문 폰트는 한글 글씨체가 없을 수 있다. */
+            /* 폰트명에 공백이 포함되어 있으면 작은 따옴표나 큰따옴표로 둘러싸준다. */
+            /* 폰트명을 여러개 적어놓으면 왼쪽부터 차례대로 */
+            /* 폰트가 적용되는데, 예를 들어 첫번째 폰트가  */
+            /* 적용이 잘 되었다면 이후 폰트는 무시 */
+            /* 구글 폰트 검색 ㄱㄱ 알빠노  */
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        .final{
-            border: 1px solid;
-            display: flex;
-            align-items: center;
-            justify-content: end;
+        .site-box>a>p {
+            color: black;
         }
-        .click{
-            width: 100px;
-        }
-        .click input{
-            width: 100px;
-            height: 20px;
-            border: 1;
-            border-radius: 40px;
-            box-shadow: 0px, 0px, 2px, 2px grayboro;
-            padding-left: 10px;
-        }
+
+        .fixed-btn {
+            position: fixed;
         
+            right: 20px;
+            bottom: 20px;
+            padding: 10px;
+            border: 0px ;
+            box-shadow: 0px 0px 5px 1px gray;
+            border-radius: 2%;
+
+            color: blue;
+            cursor: pointer;
+
+
+        }
+
+        .fixed-btn:hover {
+            background-color: #eeeeee;
+        }
     </style>
 </head>
 
@@ -140,62 +157,60 @@
         </div>
         <div class="bottom">
             <div class="site-box">
-                <div>
+                <a href="https://www.naver.com">
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>네이버</p>
-                </div>
-                <div>
+                </a>
+                <a href="https://www.kakao.com">
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>카카오</p>
-                </div>
-                <div>
+                </a>
+                <a href="https://www.daum.net">
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
-                <div>
+                </a>
+                <a>
                     <img src="https://play-lh.googleusercontent.com/Kbu0747Cx3rpzHcSbtM1zDriGFG74zVbtkPmVnOKpmLCS59l7IuKD5M3MKbaq_nEaZM"
                         alt="">
                     <p>다음</p>
-                </div>
+                </a>
             </div>
         </div>
-        <div class="final">
-            <div class="click">
-                <input type="button" value="클릭">
-            </div>
+        <div class="fixed-btn">
+            Chrome맞춤설정
         </div>
     </div>
 </body>
