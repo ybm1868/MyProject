@@ -10,6 +10,10 @@
             width: 1200px;
             background-color: black;
             margin: auto;
+        }
+
+        div {
+            border: 1px solid red;
 
         }
 
@@ -26,10 +30,17 @@
         }
 
         .header {
-            height: 80px;
+            width: 1200px;
+            height: 60px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
+            position: fixed;
+            top: 0;
+            background-color: black;
+        }
+        .ma {
+            margin: 25px;
         }
 
         .menu {
@@ -38,12 +49,14 @@
             justify-content: space-between;
             align-items: center;
         }
-        .menu a{
+
+        .menu a {
             text-decoration: dashed;
             cursor: pointer;
         }
+
         .wtr {
-        
+
             text-align: center;
         }
 
@@ -74,6 +87,8 @@
         }
 
         .wr {
+            width: 400px;
+            height: 200px;
             text-align: start;
         }
 
@@ -91,12 +106,12 @@
         }
 
         .item>div {
-            width: calc(1150px / 3 - 20px);
+            width: calc(1000px / 3 - 20px);
             height: auto;
             box-shadow: 1px 1px 4px 1px skyblue;
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .item img {
@@ -106,6 +121,16 @@
 
         .ox {
             width: 1150px;
+        }
+
+        .oxs {
+            width: 1150px;
+            height: 100px;
+        }
+
+        .oxm {
+            width: 1150px;
+            height: 400px;
         }
 
         .under {
@@ -119,30 +144,41 @@
         .c-color {
             background-color: #361e9c;
         }
-        .m-mar{
+
+        .m-mar {
             margin: 0;
         }
-        .font-m-size{
+
+        .font-m-size {
             font-size: medium;
         }
-        .font-s-size{
+
+        .font-s-size {
             font-size: small;
+        }
+        .font-l-size{
+            font-size: larger;
+        }
+
+        .map iframe {
+            width: 500px;
+            height: 350px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <div>
-                <h2 class="h2-color font-m-size"> 넥도 날드</h2>
+        <div class="header" >
+            <div class="ma">
+                <h2 class="h2-color font-l-size"> 넥도 날드</h2>
             </div>
             <div class="menu">
-                <a href="" class="p-color">home </a>
-                <a href="" class="p-color">메뉴 </a>
-                <a href="" class="p-color">매장찾기 </a>
+                <a href="#" class="p-color ">home </a>
+                <a href="#name" class="p-color">메뉴 </a>
+                <a href="#maps" class="p-color">매장찾기 </a>
             </div>
-            <div>
+            <div class="ma">
                 <div class="login center">
                     로그인/회원가입
                 </div>
@@ -154,7 +190,7 @@
                     alt="">
             </div>
             <div class="wtr">
-                <h2 class="h2-color font-m-size"> 빅넥 출시</h2>
+                <h2 class="h2-color font-l-size"> 빅넥 출시</h2>
                 <p class="p-color">
                     둘이 먹다 하나 죽어도 아무도 모르는 그환상의 맛...
                 </p>
@@ -167,8 +203,8 @@
             </div>
         </div>
         <div class="center">
-            <div class="ox center back-color">
-                <h2 class="h2-color font-m-size">햄버거 목록</h2>
+            <div class="oxs center back-color">
+                <h2 class="h2-color font-l-size" id="name">햄버거 목록</h2>
             </div>
         </div>
         <div class="center">
@@ -246,20 +282,23 @@
                             <h3> 4,000원</h3>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
-        <div class="center">
-            <div class="center ox">
-                <div class=" under center c-color">
-                    <div class=" wr">
-                        <h2 class="m-mar p-color font-m-size"> (34856) 넥스트 IT 교육센터</h2>
-                        <h2 class="m-mar p-color font-m-size"> 대전광역시 중구 계룡로 825(용두동, 희영빌딩 2층)</h2>
-                        <p class="p-color font-s-size">
-                            Tel : 042-719-8850 Fax : 042-719-8851
-                        </p>
-                    </div>
+        <div class=" center">
+            <div class=" oxm  center c-color">
+                <div class="map" id="maps">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3214.0866929708523!2d127.38631397641382!3d36.33444869381453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654953e310f187%3A0x5757a3df73a1df17!2z66el64-E64Kg65OcIOuMgOyghOqwgOyepURU7KCQ!5e0!3m2!1sko!2skr!4v1691384918164!5m2!1sko!2skr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class=" wr">
+                    <h2 class="m-mar p-color font-l-size"> (34856) 넥스트 IT 교육센터</h2>
+                    <h2 class="m-mar p-color font-l-size"> 대전광역시 중구 계룡로 825(용두동, 희영빌딩 2층)</h2>
+                    <p class="p-color font-m-size">
+                        Tel : 042-719-8850 Fax : 042-719-8851
+                    </p>
                 </div>
             </div>
         </div>
