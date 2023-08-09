@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단테이블</title>
+
+</head>
+<body>
+    <!-- <table border="1">
+         <tr>
+            <td>
+                2 x 2 = 4
+            </td>  
+            <td>
+                3 x 2 = 6
+            </td>
+            <td>
+                4 x 2 = 8
+            </td>
+            <td>
+                9 x 2 = 18
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2 x 3 = 6
+            </td>  
+            <td>
+                3 x 3 = 9
+            </td>
+            <td>
+                4 x 3 = 12
+            </td>
+            <td>
+                9 x 3 = 27
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2 x 4 = 8
+            </td>  
+            <td>
+                3 x 4 = 12
+            </td>
+            <td>
+                4 x 4 = 16
+            </td>
+            <td>
+                9 x 4 = 36
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2 x 5 = 10
+            </td>  
+            <td>
+                3 x 5 = 15
+            </td>
+            <td>
+                4 x 5 = 20
+            </td>
+            <td>
+                9 x 5 = 45
+            </td>
+        </tr> -->
+
+    <!-- </table> -->
+    <Script>
+        document.write("<table border='1'>");
+        // document.write(' <table border="1">');
+        for (let i = 2; i <= 9; i++) {
+            document.write('<tr>');
+            for (let k = 2; k < 10; k++) {
+                document.write("<td>" + k + "x" + i + "=" + (i * k) + "</td>");
+            }
+            document.write('</tr>')
+        }
+        document.write('</table>')
+    </Script>
+</body>
+</html>
