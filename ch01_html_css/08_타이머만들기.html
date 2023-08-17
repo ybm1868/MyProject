@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머만들기</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <button onclick="f_stop"></button>
+
+    <script>
+        const v_clock =document.getElementById("clock");
+        function f_showTime(){
+            let v_date = new Data();
+
+            console.log("년 : "+ v_date.getFullYear());
+            console.log("월 : "+ v_date.getMonth() +1 ); //1월 이면 0, 8월이면 7
+            console.log("일 : "+ v_date.getData());
+            console.log("요일 : "+ v_date.getDay()); //일요일 0 월요일 1,
+            console.log("시 : "+ v_date.getHours());
+            console.log("분 : "+ v_date.getMinutes());
+            console.log("초 : "+ v_date.getSecounds());
+            // 시 분 초가 한자리수 면 앞에 0을 붙여주기
+            // 5초 -> 05초
+            let v_hour = v_date.getHours();
+            if(v_hour < 10){
+                v_hour = "0" + v_hour;
+            }
+            let v_min = v_date.getMinutes() < 10 ? "0" + v_date.getMinutes() : v_date.getMinutes();
+
+            let v_sec = v_date.getSecounds();
+            if(v_sec < 10) v_sec = "0" + v_sec;
+
+            v_clock.innerHTML = v_hour + ":" + v_min + ":" + v_sec; 
+            // f_showTime();
+
+            let v_timer = setInterval(f_showTime, 1000);
+            function f_stop(){
+                clearInterval(v_timer);
+            }
+        }
+    </script>
+</body>
+</html>

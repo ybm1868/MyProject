@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교체</title>
+</head>
+<body>
+    <img id="myImg" width="500" height="400" src="../ch01_html_css/resouce/images/sadcat.jpeg" alt="">
+    <br>
+    <button onclick="f_changeImg()"> 이미지 교체</button>
+    <script>
+        let idx = 0;
+        let imgArray = ["sadcat.jpeg", "applecat.jpeg", "happycat.jpeg"];
+        function f_changeImg(){
+            let myImg = document.getElementById("myImg");
+            console.log(myImg);
+            console.log(myImg.src);
+            console.log(myImg.clientWidth);
+            // 이미지 교체 버튼을 누르면
+            // 인덱스가 0 - 1 - 2 - 0 - 1 - 2이런식이 되면서 
+            // 사진이 계속 바뀔 수 있도록 로직 구현
+            idx++;
+            console.log(idx);
+            // if(idx == 3) {
+            //     idx = 0;
+            // }
+            // 순환하는 숫자에 대해 나머지 연산자(%) 활용
+            
+            myImg.src = "../ch01_html_css/resouce/images/" + imgArray[idx % 3];
+        }
+    </script>
+    
+</body>
+</html>

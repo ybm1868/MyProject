@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>룰렛</title>
+    <style>
+        .container {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container>div {
+            height: 80%;
+            position: relative;
+        }
+
+        .triangle {
+            width: 0px;
+            height: 0px;
+
+            border-top: 30px solid red;
+            border-bottom: 30px solid transparent;
+            border-left: 10px solid rgba(0, 0, 0, 0);
+            border-right: 10px solid #ffffff00;
+
+            position: absolute;
+            top: 50px;
+            left: 50%;
+
+            transform: translate(-50%, 0);
+
+        }
+
+        .btn {
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            background-color: red;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <img id="roulette" height="100%" src="../ch01_html_css/resouce/images/룰렛.png" alt="">
+            <div class="triangle"> </div>
+            <div class="btn" onclick="f_start()"> start</div>
+        </div>
+
+    </div>
+    <script>
+        const v_roulette = document.getElementById("roulette");
+        let v_deg = 0;
+        let v_isRun = false;
+
+        function f_start() {
+            if (v_isRun == false) {
+                // 멈출 랜덤 숫자 생성
+                let v_random = Math.floor(Math.random()* 37) + 200;
+
+                console.log(v_random)
+                f_rotate(v_random);
+                v_isRun = true;
+
+            }
+        }
+        let v_speed = 20;
+        // f_rotate이 실행된 횟수
+        let v_count = 0;
+        function f_rotate(p_random) {
+            v_deg += 10;
+            v_count++;
+            v_roulette.style.transform = "rotate(" + v_deg + "deg)"
+            v_speed ++;
+
+            if(v_count > 140){
+                v_speed += 1;
+            }
+            // 멈추게 하기
+            // 언제 멈출까? (랜덤)
+            console.log('random' + p_random);
+            console.log(';count: ' + v_count);
+            if(v_count > p_random){
+                return;
+            }
+            setTimeout(f_rotate, v_speed)
+        }
+    </script>
+</body>
+</html>
