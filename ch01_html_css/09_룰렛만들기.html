@@ -89,21 +89,52 @@
         let v_count = 0;
         function f_rotate(p_random) {
             v_deg += 10;
+            // 룰렛이 돌아간 각도
             v_count++;
             v_roulette.style.transform = "rotate(" + v_deg + "deg)"
-            v_speed ++;
-
+            // v_speed ++;
+            
             if(v_count > 140){
-                v_speed += 1;
+                v_speed += 2;
             }
             // 멈추게 하기
             // 언제 멈출까? (랜덤)
-            console.log('random' + p_random);
-            console.log(';count: ' + v_count);
+            // console.log('random' + p_random);
+            // console.log(';count: ' + v_count);
             if(v_count > p_random){
+                let degree = v_deg%360;
+                // 멈춘각도에  따른 상품 알림창 띄우기
+                let present;
+                if(degree <30){
+                    persent = '아이패드';
+                } else if(degree <90){
+                    persent = '10%할인쿠폰';
+                } else if(degree < 150){
+                    persent = "미스터 피자";
+                } else if (degree < 210) {
+                    persent = "기프트 카드";
+                } else if(degree <270){
+                    persent = " 갤럭시 버즈";
+                } else if(degree < 330) {
+                    persent = "아메리카노";
+                } else {
+                    persent = "아이패드"
+                }
+                alert(persent);
+
+                // 이후 다시 룰렛을 돌릴 수 있도록
+                // 원판의 위치 초기화
+                // 버튼 활성화를 위해 v_isRun 초기화 false
+                // 이번에 돌아간 총 각도 v_deg 초기화   v_roulette.style.transform = "rotate(" + v_deg + "deg)"
+                // v_speed v_count 초기화
+                // v_roulette.style.transform = "rotate(0deg)";
+                v_isRun = false;
+                v_deg = 0;
+                v_count = 0;
+                v_speed = 20;
                 return;
             }
-            setTimeout(f_rotate, v_speed)
+            setTimeout(f_rotate, v_speed,p_random)
         }
     </script>
 </body>
