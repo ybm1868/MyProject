@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictactoe</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            border: 1px solid black;
+        }
+        .game{
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
+        .game > div{
+            width: calc(100%/3 - 2px);
+            height: calc(100%/3 - 3px);
+            border: 1px solid red;
+            cursor: pointer;
+        }
+        .game-img{
+            width: 200px;
+            height: 200px;
+        }
+        .game-img img{
+            width: 100%;
+            height: 100%;
+            
+        }
+        @keyframes cent{
+            0%{
+                width: 0%;
+                height: 0%;
+            }
+            100%{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .modal-center{
+            animation: cent 0.5s forwards;
+        }
+        .d-none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="game">
+            <div>
+                <div class="game-img model1 modal-center d-none">
+                    <img onclick="f_click1()"  src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="game-img">
+                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="button" value="게임시작">
+        </div>
+    </div>
+    <script>
+        const v_click = document.getElementsByClassName("model1")[0];
+
+        function f_click1(){
+            v_click.classList.remove("d-none")
+        }
+
+    </script>
+</body>
+</html>

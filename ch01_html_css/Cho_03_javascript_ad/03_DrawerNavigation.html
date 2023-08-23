@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrawerNavifation</title>
+    <style>
+        .container{
+            width: 1000px;
+            height: 800px;
+            border: 2px solid black;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .drawer-nav{
+            width: 200px;
+            height: 100%;
+            background-color: white;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            transform: translate(-100%, 0);
+            box-shadow: 4px 0px 4px 0px gainsboro;
+        }
+        .align-end{
+            text-align: end;
+        }
+        @keyframes slideIn{
+            0%{
+                transform: translate(-100%, 0);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        .slied-in{
+            /* 애니매이션 종료 후 종료 상태 유지 = forwards */
+            animation : slideIn 1s forwards;
+        }
+        @keyframes slideOut{
+            form{
+                transform: translate(0.0);
+            }
+            to{
+                /* 0%, 100%랑 form, to 가 같음 */
+                transform: translate(-100%, 0);
+            }
+        }
+        .slied-out{
+            animation: slideOut 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img onclick="f_drawer()" width="50" height="50" src="https://w7.pngwing.com/pngs/639/1013/png-transparent-hamburger-button-computer-icons-drop-down-list-fast-food-menu-rectangle-share-icon-pancake-thumbnail.png" alt="">
+        <div class="drawer-nav ">
+            <div class="align-end">
+                <img onclick="f_close()" width="40" height="40" src="../resouce/images/취소.png" alt="">
+            </div>
+            <div>회사소개</div>
+            <div>가시는길</div>
+        </div>
+    </div>
+    <script>
+        const v_drawer = document.getElementsByClassName("drawer-nav")[0];
+
+        function f_drawer(){
+            v_drawer.classList.add("slied-in");
+            v_drawer.classList.remove("slied-out");
+        }
+        function f_close(){
+            v_drawer.classList.add("slied-out");
+            v_drawer.classList.remove("slied-in");
+
+        }
+    </script>
+</body>
+</html>
