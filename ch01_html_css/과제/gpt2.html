@@ -1,0 +1,149 @@
+<!-- 간략화된 HTML 코드 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 스타일 및 제목 등의 설정 -->
+    <style>
+        div {
+            border: 1px solid red;
+        }
+
+        .container {
+            width: 1000px;
+            height: 1000px;
+            margin: auto;
+        }
+
+        .maingame {
+            width: 500px;
+            height: 400px;
+            margin: auto;
+            margin-top: 30%;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 2px;
+            margin-left: 20%;
+            margin-right: 20%;
+
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 36px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="maingame">
+            <div>
+                <h2 id="h2"> tic tac toe 게임 </h2>
+            </div>
+            <div class="board" id="board">
+                <!-- 이미지를 표시할 셀 -->
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+                <!-- 나머지 셀들도 동일하게 추가 -->
+            </div>
+        </div>
+        <div class="center d-none">
+                <h2 id="player"> </h2>
+
+        </div>
+        <div class="center d-none">
+            <h2 id="winer"> </h2>
+        </div>
+    </div>
+    <script>
+        // JavaScript 코드
+        const board = document.getElementById('board');
+        const cells = document.querySelectorAll('.cell');
+        const v_winer = document.getElementById('winer');
+        const v_palyer = document.getElementById('player')
+        const xImage = '../resouce/images/취소.png';
+        const oImage = '../resouce/images/확인.png';
+        let currentPlayer = 'X';
+        let moves = 0;
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // 가로
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // 세로
+            [0, 4, 8], [2, 4, 6] // 대각선
+        ];
+
+
+        function makeMove(cellIndex) {
+            const cell = cells[cellIndex];
+            if (cell.style.backgroundImage == '' && moves < 9) {
+                cell.style.backgroundImage = `url(${currentPlayer == 'X' ? xImage : oImage})`;
+                moves++;
+                v_palyer.innerHTML = currentPlayer + '플레이어';
+                if (checkWin()) {
+                    //   alert(`${currentPlayer}가 이겼습니다!`);
+                    v_winer.innerHTML = `${currentPlayer}가 이겼습니다!`
+                    resetBoard();
+                } else if (moves == 9) {
+                    //   alert('무승부입니다!');
+                    v_winer.innerHTML = '무승부입니다!'
+                    resetBoard();
+                }
+                else {
+                    currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+                }
+            }
+        }
+        function checkWin() {
+            for (const pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (cells[a].style.backgroundImage != '' &&
+                    cells[a].style.backgroundImage == cells[b].style.backgroundImage &&
+                    cells[b].style.backgroundImage == cells[c].style.backgroundImage) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function resetBoard() {
+            for (const cell of cells) {
+                cell.style.backgroundImage = '';
+            }
+            currentPlayer = 'X';
+            moves = 0;
+        }
+
+    </script>
+</body>
+
+</html>

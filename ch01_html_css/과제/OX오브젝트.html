@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="list">
+            <img class="char" src="../resouce/images/취소.png" alt="">
+            <img class="char" src="../resouce/images/확인.png" alt="">
+        </div>
+    </div>
+    <script>
+        const v_char = document.getElementsByClassName("char")
+        localStorage.setItem("")
+
+        function f_confirm(){
+            let v_db = JSON.parse(localStorage.getItem("game-img"));
+            if (v_db == null){
+                let v_array = [];
+
+                v_json = {};
+                v_json["src"] = v_selectedSrc;
+                
+                v_array.push(v_json);
+                localStorage.setItem("game-img", JSON.stringify(v_array));
+            } else {
+                v_json = {};
+                v_json["src"] = v_selectedSrc;
+
+                v_db.push(v_json);
+                localStorage.setItem("game-img", JSON.stringify(v_db));
+            }
+            location.href = "./tictactoe.html"
+        }
+    </script>
+</body>
+</html>

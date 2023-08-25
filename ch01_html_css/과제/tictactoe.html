@@ -1,118 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tictactoe</title>
     <style>
-        .container{
+        .container {
             width: 600px;
             height: 600px;
             margin: auto;
             border: 1px solid black;
         }
-        .game{
+
+        .game {
             width: 100%;
             height: 100%;
             border: 1px solid red;
             display: flex;
             flex-wrap: wrap;
-            
+
         }
-        .game > div{
+
+        .game>div {
             width: calc(100%/3 - 2px);
             height: calc(100%/3 - 3px);
             border: 1px solid red;
             cursor: pointer;
         }
-        .game-img{
+
+        .game-img {
             width: 200px;
             height: 200px;
+            cursor: pointer;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
         }
-        .game-img img{
+
+        .game-img>input {
             width: 100%;
             height: 100%;
-            
         }
-        @keyframes cent{
-            0%{
-                width: 0%;
-                height: 0%;
-            }
-            100%{
-                width: 100%;
-                height: 100%;
-            }
+
+        .modal-center {
+            animation-duration: cent 3s;
         }
-        .modal-center{
-            animation: cent 0.5s forwards;
-        }
-        .d-none{
-            display: none;
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
-<body>
+
+<body style="pointer-events: none;">
+
+    <div class="center">
+        <h2> tic tac toe </h2>
+    </div>
     <div class="container">
-        
-        <div class="game">
+
+        <div class="game" id="game">
             <div>
-                <div class="game-img model1 modal-center d-none">
-                    <img onclick="f_click1()"  src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(0)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(1)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(2)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(3)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(4)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(5)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(6)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(7)"></div>
             </div>
             <div>
-                <div class="game-img">
-                    <img onclick="f_click()" src="../resouce/images/취소.png" alt="">
-                </div>
+                <div class="game-img " onclick="makeMove(8)"></div>
             </div>
         </div>
         <div>
-            <input type="button" value="게임시작">
+        </div>
+        <div class="center ">
+            <h2 id="player"></h2>
+
+        </div>
+        <div class="center ">
+            <h2 id="winer"></h2>
         </div>
     </div>
     <script>
-        const v_click = document.getElementsByClassName("model1")[0];
+        const board = document.getElementById('game');
+        const cells = document.querySelectorAll('.game-img');
+        const v_winer = document.getElementById('winer');
+        const v_palyer = document.getElementById('player')
+        const xImage = '../resouce/images/취소.png';
+        const oImage = '../resouce/images/확인.png';
+        let currentPlayer = 'X';
+        let moves = 0;
 
-        function f_click1(){
-            v_click.classList.remove("d-none")
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // 가로
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // 세로
+            [0, 4, 8], [2, 4, 6] // 대각선
+        ];
+
+
+        function makeMove(cellIndex) {
+            const cell = cells[cellIndex];
+            if (cell.style.backgroundImage == '' && moves < 9) {
+                cell.style.backgroundImage = `url(${currentPlayer == 'X' ? xImage : oImage})`;
+                moves++;
+                v_palyer.innerHTML = currentPlayer + '플레이어';
+                if (checkWin()) {
+                    // alert(`${currentPlayer}가 이겼습니다!`);
+                    v_winer.innerHTML = `${currentPlayer}가 이겼습니다!`
+                    resetBoardWithDelay();
+                } else if (moves == 9) {
+                    // alert('무승부입니다!');
+                    v_winer.innerHTML = '무승부입니다!'
+                    resetBoardWithDelay();
+                }
+                else {
+                    currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+                }
+            }
         }
+        function checkWin() {
+            for (const pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (cells[a].style.backgroundImage != '' &&
+                    cells[a].style.backgroundImage == cells[b].style.backgroundImage &&
+                    cells[b].style.backgroundImage == cells[c].style.backgroundImage) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function resetBoardWithDelay() {
+            // 게임 종료 메시지를 5초 후에 지우고 게임을 재설정합니다.
+            setTimeout(function () {
+                v_palyer.innerHTML = '';
+                v_winer.innerHTML = ''; // 게임 종료 메시지 삭제
+                resetBoard(); // 게임 보드 재설정
+                cells.forEach(cell => cell.removeEventListener('click', makeMove));
+                document.body.style.pointerEvents = "auto";
+            }, 2000);
+        }
+
+        function resetBoard() {
+            for (const cell of cells) {
+                cell.style.backgroundImage = '';
+            }
+            currentPlayer = 'X';
+            moves = 0;
+
+        }
+
 
     </script>
 </body>
+
 </html>

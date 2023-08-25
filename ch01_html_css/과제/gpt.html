@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 2px;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 36px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+    <title>Tic Tac Toe 게임</title>
+</head>
+
+<body>
+    <div class="board" id="board">
+        <div class="cell" onclick="makeMove(0)"></div>
+        <div class="cell" onclick="makeMove(1)"></div>
+        <div class="cell" onclick="makeMove(2)"></div>
+        <div class="cell" onclick="makeMove(3)"></div>
+        <div class="cell" onclick="makeMove(4)"></div>
+        <div class="cell" onclick="makeMove(5)"></div>
+        <div class="cell" onclick="makeMove(6)"></div>
+        <div class="cell" onclick="makeMove(7)"></div>
+        <div class="cell" onclick="makeMove(8)"></div>
+    </div>
+    <script>
+        const board = document.getElementById('board');
+        const cells = document.querySelectorAll('.cell');
+        let currentPlayer = 'X';
+        let moves = 0;
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // 가로
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // 세로
+            [0, 4, 8], [2, 4, 6] // 대각선
+        ];
+
+        function makeMove(cellIndex) {
+            if (cells[cellIndex].textContent == '' && moves < 9) {
+                cells[cellIndex].textContent = currentPlayer;
+                moves++;
+                if (checkWin()) {
+                    alert(`${currentPlayer}가 이겼습니다!`);
+                    resetBoard();
+                } else if (moves == 9) {
+                    alert('무승부입니다!');
+                    resetBoard();
+                } else {
+                    currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        function checkWin() {
+            for (const pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (cells[a].textContent != '' &&
+                    cells[a].textContent == cells[b].textContent &&
+                    cells[b].textContent == cells[c].textContent) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function resetBoard() {
+            for (const cell of cells) {
+                cell.textContent = '';
+            }
+            currentPlayer = 'X';
+            moves = 0;
+        }
+    </script>
+</body>
+
+</html>
